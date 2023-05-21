@@ -8,6 +8,7 @@ DockerFile builds docker image
 
 docker build . -t <tagname-placeholder>
 
-### Run docker image
+### Usage
 
-docker run -rm -it <tagname-placeholder>
+docker run -rm -it day_night:latest cat /var/tmp/night-and-day/mode
+
