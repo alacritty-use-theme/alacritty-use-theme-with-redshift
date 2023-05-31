@@ -10,7 +10,7 @@ fi
 
 
 lat=$1; lng=$2
-lookup_day_or_night=$(redshift -vop -l manual:$lat:$lng | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$' | tr [A-Z] [a-z]) # tr API tr from, to
+lookup_day_or_night=$(redshift -vop -l geoclue2 -l $lat:$lng | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$' | tr [A-Z] [a-z]) # tr API tr from, to
 
 if [[ $lookup_day_or_night == $RDSHFT_DAY ]]; then
   result=$DAY_MODE
@@ -19,6 +19,7 @@ elif [[ $lookup_day_or_night == $RDSHFT_NIGHT ]]; then
 fi
 
 save_mode() {
+
   local -r day_night_mode=$(cat $DAY_NIGHT_MODE_PATH)
 
   # if result is defined and differs from what is saved
@@ -31,7 +32,6 @@ save_mode() {
 
     echo $result > $DAY_NIGHT_MODE_PATH
 
-    exit 0
   fi
 }
 
