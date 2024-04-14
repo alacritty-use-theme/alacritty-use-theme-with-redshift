@@ -1,4 +1,4 @@
-# pollock
+# Great Matcha
 
 ## README
 
