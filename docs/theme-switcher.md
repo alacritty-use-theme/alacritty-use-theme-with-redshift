@@ -13,15 +13,6 @@ This uses systemd units
 	  The timer is set **to run every minute** and calls the target, which calls the service.
 	  The service will get the latest state of the sun via Redshift and updates the config if needed.
 
- ## alacritty-listen-to-colorscheme.service
- _Previously named as color-mode.service_
- - Built for the _Gnome Desktop Manager_
- - Uses alacritty-use-theme to set alacritty's theme at runtime.
-
- **Overview:** `systemd` will start the `alacritty-listen-to-colorscheme.service`. The Service will monitor the system for a dbus signal matching the criteria: `type=signal interface=org.freedesktop.portal.Settings member="SettingChanged"`. 
- 
-If a signal has been found, we search the message for a specific term `color-scheme`. when the `color-scheme` is set to **prefer-dark** the system will favor darker themes, and when the `color-scheme` is either **default** or **prefer-light** the system will favor lighter themes
- 
 ## CHART
 
 ``` mermaid
