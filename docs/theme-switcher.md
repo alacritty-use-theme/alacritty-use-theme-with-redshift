@@ -1,5 +1,5 @@
 ---
-dependencies: (alacritty-use-theme, systemd, redshift)
+dependencies: alacritty-use-theme, systemd, redshift
 version: 1
 ---
 This uses systemd units
