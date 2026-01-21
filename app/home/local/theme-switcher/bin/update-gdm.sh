@@ -10,8 +10,6 @@ fi
 
 if  command -v gdm &> /dev/null; then
     source $HOME/.local/share/theme-switcher/toggle-theme-per-mode.sh
-  elif pgrep -x "i3" &> /dev/null; then
-    source $HOME/.local/share/theme-switcher/toggle-theme-i3.sh
 fi
 
 
