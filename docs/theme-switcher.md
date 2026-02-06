@@ -8,8 +8,8 @@ This uses systemd units
 - Targets
 
 # services
- ## theme-switcher.service
- **Overview:** `systemd` starts the theme-switcher unit (`theme-switcher.target`, `theme-switcher.timer`, `theme-switcher.service`)
+ ## alacritty-use-theme.service
+ **Overview:** `systemd` starts the theme-switcher unit (`alacritty-use-theme.target`, `alacritty-use-theme.timer`, `alacritty-use-theme.service`)
 	  The timer is set **to run every minute** and calls the target, which calls the service.
 	  The service will get the latest state of the sun via Redshift and updates the config if needed.
 
@@ -25,8 +25,8 @@ sharedVars@{shape: doc, label: ".local/theme-switcher/src/shared-variables"}
 updateGDM1@{label: .local/theme-switcher/bin/update-gdm.sh}
 alacrittyHelper@{shape: stadium, label: ".local/share/alacritty/configure/configure-colors.sh"}
 theme-switcher@{label: ".local/theme-switcher/theme-switcher.sh"}
-timer[theme-switcher.timer]
-target@{label: "theme-switcher.target"}
+timer[alacritty-use-theme.timer]
+target@{label: "alacritty-use-theme.target"}
 Systemd@{shape: stadium, label: Systemd}
 Redshift@{shape: subproc, label: redshift}
 geoclue@{shape: decision, label: geoclue-api}
@@ -36,9 +36,9 @@ sunset@{label: ".local/theme-switcher/bin/get-sunrise-sunset" }
 subgraph TimeBased
 	comment@{shape: comment, label: Timer will run every minute}
 	target ---> timer
-	timer  ---> theme-switcher.service
-	target ---> update-gdk-theme.service
-	theme-switcher.service
+	timer  ---> alacrityy-use-theme.service
+	target ---> update-de-theme.service
+	alacritty-use-theme.service
 end
 
 theme-switcher.service --> theme-switcher
