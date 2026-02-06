@@ -9,7 +9,7 @@ This uses systemd units
 
 # services
  ## alacritty-use-theme.service
- **Overview:** `systemd` starts the theme-switcher unit (`alacritty-use-theme.target`, `alacritty-use-theme.timer`, `alacritty-use-theme.service`)
+ **Overview:** `systemd` starts the theme-switcher unit (`alacritty-use-theme.target`, `alacritty-use-theme.timer`, `alacritty-use-theme.service`,`update-de-theme.service`)
 	  The timer is set **to run every minute** and calls the target, which calls the service.
 	  The service will get the latest state of the sun via Redshift and updates the config if needed.
 
@@ -22,7 +22,7 @@ graph LR
 ENV@{shape: doc, label: ".config/theme-switcher/environment.env"}
 file.mode@{shape: bow-rect, label: ".config/theme-switcher/mode"}
 sharedVars@{shape: doc, label: ".local/theme-switcher/src/shared-variables"}
-updateGDM1@{label: .local/theme-switcher/bin/update-gdm.sh}
+updateGDM1@{label: .local/theme-switcher/bin/update-de.sh}
 alacrittyHelper@{shape: stadium, label: ".local/share/alacritty/configure/configure-colors.sh"}
 theme-switcher@{label: ".local/theme-switcher/theme-switcher.sh"}
 timer[alacritty-use-theme.timer]
